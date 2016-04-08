@@ -1,1 +1,4 @@
-errbot==4.0.3
+errbot
+sleekxmpp
+pyasn1
+pyasn1-modules
