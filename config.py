@@ -145,8 +145,8 @@ BOT_ASYNC = True
 # The identity, or credentials, used to connect to a server
 BOT_IDENTITY = {
     # XMPP (Jabber) mode
-    'username': 'err@localhost',  # The JID of the user you have created for the bot
-    'password': 'changeme',       # The corresponding password for this user
+    'username': secrets.username,  # The JID of the user you have created for the bot
+    'password': secrets.password,       # The corresponding password for this user
     # 'server': ('host.domain.tld',5222), # server override
 
     ## HipChat mode (Comment the above if using this mode)
@@ -181,6 +181,10 @@ BOT_IDENTITY = {
     ##    example: 'bind_address': ('my-errbot.io', 0)
     # 'bind_address': ('localhost', 0),
 }
+
+if 'server' in secrets.keys():
+    BOT_IDENTITY['server'] = (secrets.server.domain, secrets.server.port)
+
 
 # Set the admins of your bot. Only these users will have access
 # to the admin-only commands.
