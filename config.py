@@ -17,7 +17,17 @@
 ##########################################################################
 
 import logging
-from . import secrets
+import yaml
+import sys
+
+
+try:
+    with open('secrets.yaml') as secrets_file:
+        secrets = yaml.load(secrets_file.read())
+except FileNotFoundError:
+    print('secrets.yaml not found!')
+    sys.exit(1)
+
 
 ##########################################################################
 # Core Err configuration                                                 #
